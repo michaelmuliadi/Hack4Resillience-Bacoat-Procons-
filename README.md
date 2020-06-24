@@ -23,6 +23,7 @@ Prequisities to run the script
 
 - For ease of use, download this rar containing pre-cooked WinPython, containing libraries such as pandas, openpyxl, and xlrd.
 (not needed for those having proper Python environment or having installed the libraries mentioned above. 
+
 https://drive.google.com/file/d/1jmthg8Hd5QeqzsovnIl3f1mNJ1gELiel/view?usp=sharing
 
 OR
@@ -34,6 +35,7 @@ pip install xlrd
 pip install pandas
 
 https://github.com/winpython/winpython/releases/tag/2.2.20191222
+
 https://sourceforge.net/projects/winpython/files/WinPython_3.7/3.7.6.0/
 
 
