@@ -30,8 +30,11 @@ OR
 
 - Download and setup WinPython for yourself. It's advised to download the dot version, with file size no more than around 20mb. 
 Install libraries pandas, openpyxl, and xlrd through WinPython Command Prompt by inputting these lines one by one
+
 pip install openpyxl
+
 pip install xlrd
+
 pip install pandas
 
 https://github.com/winpython/winpython/releases/tag/2.2.20191222
