@@ -18,5 +18,13 @@ The result is always catastrophic: massive ammount of food loss and waste, inclu
 If somehow the information bridge can be solved, stakeholders responsible for regulating supply chains can make decisions based on the analysis (provided if the data is updated in monthly basis instead of years). 
 Food loss and waste can be somehow mitigated and market price will have slighter fluctuation.
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Prequisities to run the script
 
+- For ease of use, download this rar containing pre-cooked WinPython, containing libraries such as pandas, openpyxl, and xlrd.
+(not needed for those having proper Python environment or having installed the libraries mentioned above. 
+
+
+~~~~~ Credits ~~~~~~
 Everything is made simpler thanks to WinPython program from WinPython Development Team.
+Also thanks to Anaconda Navigator Development Team.
