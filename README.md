@@ -43,6 +43,14 @@ https://sourceforge.net/projects/winpython/files/WinPython_3.7/3.7.6.0/
 
 
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ATTENTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The database included in the pre-cooked WinPython Procons is only mock-up. 
+
+To analyze relevant data from Indonesia 2013-2014 :
+Replace the procons_database.xlsx using the file of same name in Releases or Repository.
+
+
+
 ~~~~~ Credits ~~~~~~
 Everything is made simpler thanks to WinPython program from WinPython Development Team.
 Also thanks to Anaconda Navigator Development Team.
