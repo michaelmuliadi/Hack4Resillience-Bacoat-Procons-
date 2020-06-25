@@ -1,0 +1,76 @@
+# Required libraries for basic Excel functions
+import pandas as pd
+from openpyxl import load_workbook
+import sys
+
+print("**************************************************************************************")
+print("Welcome to Bacoat's Procons Program.")
+print("Database is located at file procons_database.")
+print("Update the database on regular basis for better pattern monitoring.")
+print("**************************************************************************************")
+
+# The Excel file containing database data must be in same folder with procons.py script
+# Rename the file you want to analyze below, as you see fit
+df = pd.read_excel('./procons_database.xlsx', sheet_name=0)
+
+# A new collumn containing Supply-Demand Ratio will be created after running the script
+print ("")
+print ("SDR implies Supply (Production) and Demand (Consumption) Ratio.")
+print ("Value of 1 implies theoretical balance between Supply and Demand in the market.")
+print ("Acceptable threshold of difference from ratio of 1 is 0.1 or 10% deviation tolerance.")
+print ("Hence, SDR < 0.9 implies Over-Demand, while SDR > 1.1 implies Over-Supply.")
+print ("Use the value to assist better judgments by stakeholder.")
+df.loc[df['Consumption (Tons)'] > 0, 'SDR'] = df['Production (Tons)']/df['Consumption (Tons)']
+count_row = df.shape[0]
+count_col = df.shape[1]
+print("")
+print(df)
+
+# On monthly data basis, specifying total number of data points
+print("")
+print("Number of entries :", count_row)
+print("")
+print("**************************************************************************************")
+
+# Analysis to specify periods of over-demand and over-supply in whole database
+# SDR = Supply-Demand Ratio. The value of 1 implies balance of supply (production) and demand (consumption)
+print("Below specifies the periods of over-demand")
+print("")
+df_filtered1 = df.query('SDR < 0.9')
+print(df_filtered1)
+print("")
+print("**************************************************************************************")
+
+print("Below specifies the periods of over-supply")
+print("")
+df_filtered2 = df.query('SDR > 1.1')
+print(df_filtered2)
+
+# Choice to overwrite Excel file or not
+path = "./procons_database.xlsx"
+book = load_workbook(path)
+writer = pd.ExcelWriter(path, engine = 'openpyxl')
+writer.book = book
+
+print("")
+print("**************************************************************************************")
+print("**************************************************************************************")
+print ("Input your choice below. Make sure the Excel file has been properly closed.")
+print("")
+choice = input("Do you wish to save the analysis to Excel file? (Y/N) ")
+
+
+if choice == 'y':
+    df_filtered1.to_excel(writer, sheet_name = 'Analysis over demand')
+    df_filtered2.to_excel(writer, sheet_name = 'Analysis over supply')
+    writer.save()
+    writer.close()
+    print ("The file has been overwritten...")
+else :
+    print("")
+    print("The file has not been overwritten. Analysis result will be discarded...")
+    sys.exit(0)
+
+print("**************************************************************************************")
+
+
